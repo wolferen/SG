@@ -7,21 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="user_nav">
-    <% if current_user %>
-      Logged in as <%= current_user.email %>.
-      <%= link_to "Log out", log_out_path %>
-    <% else %>
-      <%= link_to "Sign up", sign_up_path %> or
-      <%= link_to "log in", log_in_path %>
-    <% end %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href=/>SG cources</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div id="user_nav">
+        <% if current_user  %>
+        <ul class='nav navbar-nav navbar-link navbar-right'>
+          <p class='navbar-text'> Logged in as <%= current_user.email %></p>
+          <li><%= link_to "Log out", log_out_path %></li>
+        </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="sign_up">Sign up</a></li>
+            <li><a href="log_in">Log in</a></li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-
+</nav>
+<p class='notice', align='center'><%= notice %></p>
+<p class='alert', align='center'><%= alert %></p>
 <%= yield %>
-
+</nav>
 </body>
+</html>
 </html>

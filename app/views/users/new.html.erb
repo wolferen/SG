@@ -1,43 +1,76 @@
-<h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="container">
+    <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        <div class="alert alert-danger" role="alert" id="danger-alert">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+  <div class="row">
+  	<div class="col-md-6">
+          <form class="form-horizontal" action="" method="POST">
+          <fieldset>
+            <div id="legend">
+              <legend class="">Sign up</legend>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="username">First name</label>
+              <div class="controls">
+                <%= f.text_field :first_name, class: 'form-control input-lg' %>
+                <p class="help-block">First name can contain any letters or numbers, without spaces</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="username">Last name</label>
+              <div class="controls">
+                <%= f.text_field :last_name, class: 'form-control input-lg' %>
+                <p class="help-block">Last name can contain any letters or numbers, without spaces</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="username">Birthday</label>
+              <div class="controls">
+                <%= f.text_field :birthday, class: 'form-control input-lg' %>
+                <p class="help-block">Input your birthday</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="email">E-mail</label>
+              <div class="controls">
+                <%= f.text_field :email, class: 'form-control input-lg' %>
+                <p class="help-block">Please provide your E-mail</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="email">Username</label>
+              <div class="controls">
+                <%= f.text_field :username, class: 'form-control input-lg' %>
+                <p class="help-block">Please enter your username</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="password">Password</label>
+              <div class="controls">
+                <%= f.password_field :password, class: 'form-control input-lg' %>
+                <p class="help-block">Password should be at least 6 characters</p>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="password_confirm">Password (Confirm)</label>
+              <div class="controls">
+                <%= f.password_field :password_confirmation, class: 'form-control input-lg' %>
+                <p class="help-block">Please confirm password</p>
+              </div>
+            </div>
+            <%= f.button 'Create user', :class => 'btn btn-success' %>
+          </fieldset>
+        </form>
     </div>
-  <% end %>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :birthday %><br />
-    <%= f.text_field :birthday %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
+  </div>
+</div>
 <% end %>
