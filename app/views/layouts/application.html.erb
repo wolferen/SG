@@ -15,12 +15,13 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href=/>SG cources</a>
+      <a class="navbar-brand" href=/posts>SG post</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <div id="user_nav">
         <% if current_user  %>
         <ul class='nav navbar-nav navbar-link navbar-right'>
-          <p class='navbar-text'> Logged in as <%= current_user.email %></p>
+          <p class='navbar-text'> Logged in as <%= current_user.username %></p>
           <li><%= link_to "Log out", log_out_path %></li>
         </ul>
         <% else %>
@@ -33,10 +34,17 @@
     </div>
   </div>
 </nav>
-<p class='notice', align='center'><%= notice %></p>
-<p class='alert', align='center'><%= alert %></p>
+<% if notice %>
+  <div class="alert alert-info" role="alert" id="alert">
+    <p class='notice', align='center'><%= notice %></p>
+  </div>
+<% end %>
+<% if alert %>
+  <div class="alert alert-danger" role="alert" id="alert">
+    <p class='alert', align='center'><%= alert %></p>
+  </div>
+<% end %>
 <%= yield %>
 </nav>
 </body>
-</html>
 </html>
