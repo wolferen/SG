@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  helper_method :can_edit?
   before_filter :check_auth, only: %i[new create edit update destroy show]
   before_filter :find_post, only: %i[edit update destroy show]
   # GET /posts
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
+      format.js
     end
   end
 
@@ -44,9 +46,11 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -73,18 +77,19 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
   private
 
+  def can_edit?(post)
+    current_user && post.user_id == current_user.id
+  end
+
   def authorize_user!
     redirect_to log_in_path
     flash[:error] = 'Invalid credentials'
-  end
-
-  def can_edit?(post)
-    post.user_id == current_user.id
   end
 
   def find_post

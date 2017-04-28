@@ -1,0 +1,30 @@
+  <div class='col-md-6 col-md-offset-3'>
+    <div class='jumbotron'>
+          <div class='row post'>
+            <div class='col-md-10'>
+              <h2 class='post-title'>Title: <%= best_in_place post, :title %></h2>
+              <p class='post-sub-title post-body'> Body: <%= best_in_place post, :body %> </p>
+              <p class='time-created-at post-sub-title'>Published at: <%= post.published_at.strftime('%B %d, %Y') %></p>
+              <p class='post-sub-title post-desc'> Author: <%= post.user.full_name %> Post ID: <%= id="post_#{post.id}" %> </p>
+            </div>
+            <div class='col-md-2'>
+              <p><%= link_to post do %></p>
+              <i class='fa fa-search fa-lg'></i>
+              <% end %>
+            </div>
+            <% if can_edit? post %>
+            <div class='col-md-2'>
+              <p><%= link_to edit_post_path(post) do %></p>
+              <i class='fa fa-edit fa-lg'></i>
+              <% end %>
+            </div>
+            <div class='col-md-2'>
+              <p><%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %></p>
+              <i class='fa fa-close fa-lg'></i>
+              <% end %>
+            </div>
+            <% end %>
+        </div>
+        <br>
+      </div>
+  </div>

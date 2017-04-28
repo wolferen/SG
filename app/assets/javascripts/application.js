@@ -11,8 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require bootstrap
 //= require jquery_ujs
+//= require bootstrap
+//= require best_in_place
 //= require_tree .
 setTimeout(function() {
     $('#alert').fadeOut('fast');
