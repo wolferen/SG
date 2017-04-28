@@ -2,10 +2,7 @@
 <div align="center">
   <h1 align="center">Listing posts</h1>
   <%= link_to 'New Post', new_post_path, remote: true %>
- </div>
-
-<table>
-  <tbody>
-    <%= render @posts.reverse %>
-  </tbody>
-</table>
+</div>
+<div class="panel-group">
+  <%= render @posts.reverse %>
+</div>

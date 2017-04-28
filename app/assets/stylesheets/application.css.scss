@@ -10,9 +10,14 @@
  *
  *= require_self
  *= require_tree .
- */
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+*/
 
- @import "bootstrap";
- @import "font-awesome-sprockets";
- @import "font-awesome";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.actions{
+  a{
+    margin-right: 20px;
+  }
+}
