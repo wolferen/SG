@@ -5,4 +5,5 @@
 </div>
 <div class="panel-group">
   <%= render @posts.reverse %>
+  <%= will_paginate @posts,:previous_label => '<', :next_label => '>', renderer: BootstrapPagination::Rails %>
 </div>
