@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require best_in_place
+//= require pagination
 //= require_tree .
 setTimeout(function() {
     $('#alert').fadeOut('fast');

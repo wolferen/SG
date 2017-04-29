@@ -1,9 +1,15 @@
-
-<div align="center">
+<div align="center" class="page-header">
   <h1 align="center">Listing posts</h1>
   <%= link_to 'New Post', new_post_path, remote: true %>
 </div>
-<div class="panel-group">
+
+
+<div id="posts" class="panel-group">
   <%= render @posts.reverse %>
-  <%= will_paginate @posts,:previous_label => '<', :next_label => '>', renderer: BootstrapPagination::Rails %>
 </div>
+<div id="loader" class="text-center">
+  <img src="images/loading.gif" alt="Loading...">
+      <%= will_paginate %>
+  </img>
+</div>
+  <%#= will_paginate @posts,:previous_label => '<', :next_label => '>', renderer: BootstrapPagination::Rails %>
