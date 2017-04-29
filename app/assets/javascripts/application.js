@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require best_in_place
 //= require pagination
+//= require social-share-button
 //= require_tree .
 setTimeout(function() {
     $('#alert').fadeOut('fast');

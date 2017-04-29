@@ -6,7 +6,7 @@
   <div class="panel-body ">
     <p class='row col-md-12'> <%= best_in_place post, :body %> </p>
     <div class="row">
-      <div class="actions col-md-3">
+      <div class="actions col-md-3"><br>
         <%= link_to post do %>
             <i class='fa fa-search fa-lg'></i>
         <% end %>
@@ -18,6 +18,11 @@
                 <i class='fa fa-close fa-lg'></i>
             <% end %>
         <% end %>
+        <div class="row">
+          <div class="col-md-3">
+            <br> <br> <%= social_share_button_tag(post.title) %>
+          </div>
+        </div>
       </div>
       <p class='col-md-offset-6 col-md-3 text-right'>Published at: <%= post.published_at.strftime('%B %d, %Y') %></p>
     </div>

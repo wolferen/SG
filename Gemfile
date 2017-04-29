@@ -12,6 +12,7 @@ gem 'font-awesome-sass'
 gem 'best_in_place'
 gem 'rubocop'
 gem 'will_paginate', '~> 3.1.5'
+gem 'social-share-button'
 
 group :assets do
   gem 'bootstrap-sass', '3.1.1.0'
