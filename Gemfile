@@ -14,6 +14,8 @@ gem 'rubocop'
 gem 'will_paginate', '~> 3.1.5'
 gem 'social-share-button'
 gem 'pry'
+gem 'remotipart', '~> 1.3', '>= 1.3.1'
+gem 'carrierwave', '~> 0.11.0'
 
 group :assets do
   gem 'bootstrap-sass', '3.1.1.0'

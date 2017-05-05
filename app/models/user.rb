@@ -1,9 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :birthday, :email, :first_name, :last_name, :password, :username, :password_confirmation
+  attr_accessible :birthday, :email, :first_name, :last_name, :password, :password_confirmation, :username
 
   attr_accessor :password
-
-  before_save :encrypt_password
 
   has_many :posts
   has_many :images, as: :imageable

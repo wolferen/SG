@@ -1,12 +1,12 @@
 <div align="center" class="page-header">
-  <h1 align="center">Listing posts</h1>
-  <%= link_to 'New Post', new_post_path, remote: true %>
+  <h1 align="center">Listing news</h1>
+  <%= link_to 'Write a new', new_post_path, remote: true %>
 </div>
 
 <div id="posts" class="panel-group clearfix paginatiable">
   <%= render @posts %>
 </div>
 <div id="loader" class="text-center">
-  <img src="assets/loading.gif" alt="Loading...">
+  <img src="/assets/loading.gif" alt="Loading...">
   </img>
 </div>

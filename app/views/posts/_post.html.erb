@@ -1,11 +1,12 @@
 <div class="row post-row">
   <div class='panel panel-primary col-lg-6' id="post_<%= post.id %>">
     <div class="panel-heading panel-heading-colour row">
-      <p class='col-md-3 h4'> Title: <%= best_in_place post, :title %> </p>
-      <p class='col-md-offset-5 col-md-4 text-right h4'> Author: <%= post.user.full_name %> </p>
+      <p class='col-md-6 h4'> Title: <%= best_in_place post, :title %> </p>
+      <p class='col-md-offset-2 col-md-4 text-right h4'> <%= post.user.full_name %> </p>
     </div>
     <div class="panel-body">
       <p class='row col-md-12'> <%= best_in_place post, :body %> </p>
+      <p class="image-medium image-responsive"> <%= image_tag post.images.first.url %> </p>
       <div class="row row-bordered">
         <div class="col-md-1">
           <%= link_to post do %>

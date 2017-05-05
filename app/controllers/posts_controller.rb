@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = current_user.posts.new
-
+    @post.images.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }

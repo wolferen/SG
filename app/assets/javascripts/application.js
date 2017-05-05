@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.remotipart
 //= require bootstrap
 //= require best_in_place
 //= require social-share-button
