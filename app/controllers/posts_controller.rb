@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = current_user.posts.new
-    @post.images.build
+    @post.images.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -45,19 +45,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = current_user.posts.new(params[:post])
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
-        format.js
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-        format.js
-      end
-    end
+    @post = current_user.posts.create(params[:post])
+    
+    respond_to :js
   end
 
   # PUT /posts/1
