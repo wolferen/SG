@@ -3,12 +3,10 @@
   <%= link_to 'New Post', new_post_path, remote: true %>
 </div>
 
-
-<div id="posts" class="panel-group">
-  <%= render @posts.reverse %>
+<div id="posts" class="panel-group clearfix paginatiable">
+  <%= render @posts %>
 </div>
 <div id="loader" class="text-center">
-  <img src="images/loading.gif" alt="Loading...">
-      <%= will_paginate %>
+  <img src="assets/loading.gif" alt="Loading...">
   </img>
 </div>

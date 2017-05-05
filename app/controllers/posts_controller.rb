@@ -5,14 +5,18 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-      @posts = Post.order('id DESC').page(params[:page]).per_page(10)
+    @posts = Post.order('id DESC').page(params[:page])
 
-      respond_to do |format|
-        format.js
-        format.html # index.html.erb
-        format.json { render json: @posts }
+    respond_to do |format|
+      format.js do
+        cookies[:current_page] = cookies[:current_page].to_i + 1 unless @posts.empty?
       end
+      format.html do
+        cookies[:current_page] = 1
+      end # index.html.slim
+      format.json { render json: @posts }
     end
+  end
 
   # GET /posts/1
   # GET /posts/1.json

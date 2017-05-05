@@ -1,4 +1,4 @@
-let postForm = $('#post_form')
+var postForm = $('#post_form')
 
  if (postForm.empty()){
      $('#posts').prepend('<%= j render 'form', is_remote: true %>');

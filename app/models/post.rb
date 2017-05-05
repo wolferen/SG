@@ -5,4 +5,6 @@ class Post < ActiveRecord::Base
 
   scope :published_all, -> { where('published_at IS NOT NULL') }
 
+  self.per_page = 10
+
 end

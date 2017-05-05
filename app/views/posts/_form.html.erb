@@ -1,4 +1,5 @@
-<%= form_for(@post, html: { class: "form-horizontal", id: 'post_form', role: "form", remote: true }) do |f|  %>
+<%= form_for(@post, html: { class: 'form-horizontal', id: 'post_form', role: 'form', remote: is_remote ||= false }) do |f|  %>
+
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>

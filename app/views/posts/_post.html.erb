@@ -1,30 +1,36 @@
-<div class='panel panel-primary' id="post_<%= post.id %>">
-  <div class="panel-heading row">
-    <p class='col-md-2 h4'> Title: <%= best_in_place post, :title %> </p>
-    <p class='col-md-offset-8 col-md-2 text-right h4'> Author: <%= post.user.full_name %> </p>
-  </div>
-  <div class="panel-body ">
-    <p class='row col-md-12'> <%= best_in_place post, :body %> </p>
-    <div class="row">
-      <div class="actions col-md-3"><br>
-        <%= link_to post do %>
-            <i class='fa fa-search fa-lg'></i>
-        <% end %>
-        <% if can_edit? post %>
-            <%= link_to edit_post_path(post) do %>
+<div class="row post-row">
+  <div class='panel panel-primary col-lg-6' id="post_<%= post.id %>">
+    <div class="panel-heading panel-heading-colour row">
+      <p class='col-md-3 h4'> Title: <%= best_in_place post, :title %> </p>
+      <p class='col-md-offset-5 col-md-4 text-right h4'> Author: <%= post.user.full_name %> </p>
+    </div>
+    <div class="panel-body">
+      <p class='row col-md-12'> <%= best_in_place post, :body %> </p>
+      <div class="row row-bordered">
+        <div class="col-md-1">
+          <%= link_to post do %>
+              <i class='fa fa-search fa-lg'></i>
+          <% end %>
+        </div>
+          <% if can_edit? post %>
+            <div class="col-md-1">
+              <%= link_to edit_post_path(post) do %>
                 <i class='fa fa-edit fa-lg'></i>
-            <% end %>
-            <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %>
+              <% end %>
+            </div>
+            <div class="col-md-1">
+              <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do %>
                 <i class='fa fa-close fa-lg'></i>
-            <% end %>
-        <% end %>
-        <div class="row">
-          <div class="col-md-3">
-            <br> <br> <%= social_share_button_tag(post.title) %>
-          </div>
+              <% end %>
+            </div>
+          <% end %>
+        <div class="col-md-offset-2 col-md-2">
+          <%= social_share_button_tag(post.title) %>
+        </div>
+          <div class="col-md-offset-1 col-md-4">
+            Posted at: <%= post.published_at.strftime('%B %d, %Y') %>
         </div>
       </div>
-      <p class='col-md-offset-6 col-md-3 text-right'>Published at: <%= post.published_at.strftime('%B %d, %Y') %></p>
     </div>
   </div>
 </div>
