@@ -1,34 +1,44 @@
-<div class="modal-dialog modal-lg">
-<%= form_for(@post, html: {class: 'form-horizontal', id: 'post_form', role: 'form', remote: is_remote ||= false }) do |f|  %>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Creating a new post</h4>
+      </div>
+        <%= form_for(@post, html: {class: 'form-horizontal', id: 'post_form', role: 'form', remote: is_remote ||= false }) do |f|  %>
+        <div class="modal-body mymodalfadebody" id="mymodalfadebody">
+          <% if @post.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+              <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+            <%= f.label :title %><br />
+            <%= f.text_field :title %>
+          </div>
+          <div class="field">
+            <%= f.label :body %><br />
+            <%= f.text_field :body %>
+          </div>
+          <div class="field">
+            <%= f.label :published_at %><br />
+            <%= f.datetime_select :published_at %>
+          </div>
+            <%= f.label :image %><br />
+            <%= f.fields_for :images do |ff| %>
+                <%= ff.file_field :url %>
+            <% end %>
+          <br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" form="post_form" class="btn btn-primary" id="submit">Submit</button>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_field :body %>
-  </div>
-  <div class="field">
-    <%= f.label :published_at %><br />
-    <%= f.datetime_select :published_at %>
-  </div>
-    <%= f.label :image %><br />
-    <%= f.fields_for :images do |ff| %>
-        <%= ff.file_field :url %>
-    <% end %>
-  <br />
-<% end %>
-</div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
