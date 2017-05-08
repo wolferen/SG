@@ -72,8 +72,8 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mimemagic (0.3.2)
+    mini_magick (4.7.0)
     multi_json (1.12.1)
-    mysql2 (0.4.5)
     parser (2.4.0.0)
       ast (~> 2.2)
     polyglot (0.3.5)
@@ -160,7 +160,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   font-awesome-sass
   jquery-rails
-  mysql2
+  mini_magick
   pry
   quiet_assets
   rails (= 3.2.22.5)

@@ -31,7 +31,8 @@
           </div>
             <%= f.label :image %><br />
             <%= f.fields_for :images do |ff| %>
-                <%= ff.file_field :url %>
+                <%= ff.file_field :url %> </br> or by URL:
+                <%= ff.text_field :remote_url_url %>
             <% end %>
           <br />
       </div>

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   private
 
   def log_in_after_sign_up(user)

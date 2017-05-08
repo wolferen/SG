@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.22.5'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
-gem 'mysql2'
 gem 'sqlite3'
 gem 'test-unit', '~> 3.0'
 gem 'autoprefixer-rails'
@@ -16,6 +15,7 @@ gem 'social-share-button'
 gem 'pry'
 gem 'remotipart', '~> 1.3', '>= 1.3.1'
 gem 'carrierwave', '~> 0.11.0'
+gem 'mini_magick'
 
 gem 'quiet_assets', group: :development
 

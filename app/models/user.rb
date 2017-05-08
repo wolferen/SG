@@ -1,10 +1,14 @@
 class User < ActiveRecord::Base
-  attr_accessible :birthday, :email, :first_name, :last_name, :password, :password_confirmation, :username
+  attr_accessible :birthday, :email, :first_name, :last_name, :password, :username, :password_confirmation
 
   attr_accessor :password
 
   has_many :posts
   has_many :images, as: :imageable
+
+  attr_accessor :password
+
+  before_save :encrypt_password
 
   scope :active_user, -> { where email.present? }
   scope :birthdate, -> { active_user.where('birthdate <=?', Time.now - 18.year) }
@@ -28,13 +32,12 @@ class User < ActiveRecord::Base
   end
 
   private
-
+  
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
-
 
 end

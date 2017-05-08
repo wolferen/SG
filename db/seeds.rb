@@ -17,7 +17,7 @@ Post.destroy_all
   password: '12345678'
   )
 
-200.times do |count|
+50.times do |count|
   user = User.create(
   first_name: "name#{count}",
   last_name: "last_name#{count}",

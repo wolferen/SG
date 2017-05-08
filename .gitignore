@@ -17,6 +17,6 @@
 /.softgroup_prod
 /.softgroup
 /.public/uploads
-/public/uploads
+public/uploads
 softgroup
 softgroup_prod
